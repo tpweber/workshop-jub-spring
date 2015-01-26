@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="helloWorldService_V2" class="com.jambit.workshop.jib.spring.data.ff4j.ImprovedHelloWorldImpl" />
+
+    <bean id="helloWorldService_V1" class="com.jambit.workshop.jib.spring.data.ff4j.HelloWorldImpl" />
+
+    <bean id="helloWorldService" class="org.togglz.spring.proxy.FeatureProxyFactoryBean">
+        <property name="feature" value="FEATURE_JIRA_4711" />
+        <property name="active" ref="helloWorldService_V2" />
+        <property name="inactive" ref="helloWorldService_V1" />
+    </bean>
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.jambit.workshop.jib.spring.data.ff4j" />
+</beans>

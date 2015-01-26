@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="inMemoryFeatureStore" class="org.ff4j.store.InMemoryFeatureStore"
+        p:location="ff4j/ff4j.xml" />
+
+    <bean id="ff4jBean" class="org.ff4j.FF4j"
+          p:store-ref="inMemoryFeatureStore" />
+
+    <context:annotation-config />
+    <context:component-scan base-package="org.ff4j.aop,com.jambit.workshop.jib.spring.data.ff4j" />
+</beans>

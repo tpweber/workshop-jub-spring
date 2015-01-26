@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="pooledDataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <property name="driverClassName" value="${flyway.driver}"/>
+        <property name="url" value="${flyway.url}"/>
+        <property name="username" value="${flyway.user}"/>
+        <property name="password" value="${flyway.password}"/>
+        <!-- these are special properties of the Tomcat JDBC Connection Pool-->
+        <property name="initialSize" value="32"/>
+        <property name="maxActive" value="128"/>
+        <property name="maxIdle" value="64"/>
+        <property name="jmxEnabled" value="true"/>
+        <property name="fairQueue" value="true"/>
+        <property name="defaultAutoCommit" value="false"/>
+        <!--java.sql.Connection.TRANSACTION_READ_COMMITTED -->
+        <property name="defaultTransactionIsolation" value="2"/>
+    </bean>
+</beans>

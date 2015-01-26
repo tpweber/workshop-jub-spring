@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<features>
+    <feature uid="HELLOWORLD_FEATURE"   enable="false" description="HELLOWORLD_FEATURE" />
+    <feature uid="GOODBYEWORLD_FEATURE" enable="false" description="GOODBYEWORLD_FEATURE" />
+    <feature-group name="Release 1.2.3">
+        <feature uid="FEATURE_JIRA_4711" enable="false" description="FEATURE_JIRA_4711" />
+        <feature uid="FEATURE_JIRA_4712" enable="false" description="FEATURE_JIRA_4712" />
+    </feature-group>
+</features>
